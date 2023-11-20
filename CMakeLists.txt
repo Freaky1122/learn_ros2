@@ -83,3 +83,11 @@ install(TARGETS
   controller_node
   DESTINATION lib/${PROJECT_NAME}
 )
+
+# parameter
+add_executable(parameter_node src/parameter.cpp)
+ament_target_dependencies(parameter_node rclcpp)
+install(TARGETS
+  parameter_node 
+  DESTINATION lib/${PROJECT_NAME}
+)
