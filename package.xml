@@ -3,8 +3,8 @@
 <package format="3">
   <name>learn_ros2</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="qwq@todo.todo">qwq</maintainer>
+  <description>ROS2 example package</description>
+  <maintainer email="quewenqiang@gmail.com">qwq</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
@@ -14,6 +14,7 @@
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
   <depend>example_interfaces</depend>
+  <depend>rclcpp_action</depend>
 
   <member_of_group>rosidl_interface_packages</member_of_group>
 

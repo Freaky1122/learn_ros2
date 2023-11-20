@@ -1,1 +1,1 @@
-# ROS2  examples repository
+# ROS2  examples package

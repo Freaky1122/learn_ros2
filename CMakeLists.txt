@@ -13,11 +13,13 @@ find_package(example_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(learn_ros2 REQUIRED)
+find_package(rclcpp_action REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/RobotPose.msg"
   "msg/RobotStatus.msg"
   "srv/MoveRobot.srv"
+  "action/MoveRobot.action"
   DEPENDENCIES geometry_msgs
 )
 
@@ -69,18 +71,18 @@ install(TARGETS
 
 
 # robot
-add_executable(robot_node src/robot.cpp)
-ament_target_dependencies(robot_node rclcpp learn_ros2)
+add_executable(custom_robot_node src/custom_robot.cpp)
+ament_target_dependencies(custom_robot_node rclcpp learn_ros2)
 install(TARGETS
-  robot_node
+  custom_robot_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
 # controller
-add_executable(controller_node src/controller.cpp)
-ament_target_dependencies(controller_node rclcpp learn_ros2)
+add_executable(custom_controller_node src/custom_controller.cpp)
+ament_target_dependencies(custom_controller_node rclcpp learn_ros2)
 install(TARGETS
-  controller_node
+  custom_controller_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -91,3 +93,29 @@ install(TARGETS
   parameter_node 
   DESTINATION lib/${PROJECT_NAME}
 )
+
+# action_robot
+add_executable(action_robot_node src/robot.cpp src/action_robot.cpp)
+ament_target_dependencies(action_robot_node rclcpp rclcpp_action learn_ros2)
+install(TARGETS
+  action_robot_node 
+  DESTINATION lib/${PROJECT_NAME}
+)
+target_include_directories(action_robot_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+# action_controller
+add_executable(action_controller_node src/action_controller.cpp)
+ament_target_dependencies(action_controller_node rclcpp rclcpp_action learn_ros2)
+install(TARGETS
+  action_controller_node 
+  DESTINATION lib/${PROJECT_NAME}
+)
+target_include_directories(action_controller_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+# launch
+install(DIRECTORY launch
+DESTINATION share/${PROJECT_NAME})
