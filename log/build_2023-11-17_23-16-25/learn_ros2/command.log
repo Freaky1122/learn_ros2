@@ -1,0 +1,4 @@
+Invoking command in '/home/qwq/dev/my_ws/src/learn_ros2/build/learn_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/qwq/dev/my_ws/src/learn_ros2 -DCMAKE_INSTALL_PREFIX=/home/qwq/dev/my_ws/src/learn_ros2/install/learn_ros2
+Invoked command in '/home/qwq/dev/my_ws/src/learn_ros2/build/learn_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/qwq/dev/my_ws/src/learn_ros2 -DCMAKE_INSTALL_PREFIX=/home/qwq/dev/my_ws/src/learn_ros2/install/learn_ros2
+Invoking command in '/home/qwq/dev/my_ws/src/learn_ros2/build/learn_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/qwq/dev/my_ws/src/learn_ros2/build/learn_ros2 -- -j8 -l8
+Invoked command in '/home/qwq/dev/my_ws/src/learn_ros2/build/learn_ros2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/qwq/dev/my_ws/src/learn_ros2/build/learn_ros2 -- -j8 -l8

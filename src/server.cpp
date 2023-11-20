@@ -16,6 +16,9 @@ class ServerNode: public rclcpp::Node
         ServerNode(std::string name) : Node(name)
         {
             RCLCPP_INFO(this->get_logger(), "node : %s start!!", name.c_str());
+            server = this->create_service<example_interfaces::srv::AddTwoInts>(
+                "add_two_ints", 
+                std::bind(&ServerNode::server_callback, this, std::placeholders::_1, std::placeholders::_2));
         }
 };
 
@@ -25,7 +28,7 @@ int main(int argc, char** argv)
     //init rclcpp
     rclcpp::init(argc, argv);
     //create a node
-    auto node = std::make_shared<ServerNode>("client_node");
+    auto node = std::make_shared<ServerNode>("server_node");
 
 
     rclcpp::spin(node);
